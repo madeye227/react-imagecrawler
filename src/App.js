@@ -11,6 +11,8 @@ class App extends Component {
   }
 
   switchNameHandler = (newUrl, newDepth) => {
+    console.log(newUrl)
+    console.log(newDepth)
     fetch('http://127.0.0.1:5000/crawler_results', {
       method: 'POST',
       headers: {
@@ -19,7 +21,7 @@ class App extends Component {
       },
       body: JSON.stringify({
         url: newUrl,
-        depth: parseInt(newDepth),
+        depth: parseInt(newDepth, 10),
       })
     })
     .then(results => {
@@ -50,8 +52,10 @@ class App extends Component {
         <QueryBox
           url={this.state.querybox[0].url}
           depth={this.state.querybox[0].depth}
-          click={this.switchNameHandler.bind(this, 'Max!')}
+          click={this.switchNameHandler.bind(this, 'https://google.com', 1)}
           changed={this.urlChangedHandler} />
+
+
       </div>
     );
     //return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Hi, I\'m a React App!!!'))
