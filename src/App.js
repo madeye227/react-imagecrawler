@@ -6,7 +6,7 @@ class App extends Component {
 
   state = {
     querybox: [
-      { url: 'Max', depth : 0},
+      { url: 'https://google.com', depth : 0},
     ]
   }
 
